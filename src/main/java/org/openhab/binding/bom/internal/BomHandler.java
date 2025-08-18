@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2010-2021 Contributors to the openHAB project
+/*
+ * Copyright (c) 2010-2025 Contributors to the openHAB project
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
@@ -155,7 +155,8 @@ public class BomHandler extends BaseThingHandler {
             String stationXPath = "/product/observations/station[@wmo-id='" + config.weatherStationId + "']";
             String observationDateTimeStr = getNodeAttribute(xmlDocument, xPath, stationXPath + "/period/@time-local");
 
-            if (observationDateTimeStr != null && observationDateTimeStr != "") {
+            // if (observationDateTimeStr != null && observationDateTimeStr != "") {
+            if (observationDateTimeStr != null && !observationDateTimeStr.trim().isEmpty()) {
                 String weatherStation = getNodeAttribute(xmlDocument, xPath, stationXPath + "/@description");
 
                 ZonedDateTime observationZonedDateTime = ZonedDateTime.parse(observationDateTimeStr,
