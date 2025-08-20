@@ -519,7 +519,8 @@ public class BomImageHandler extends BaseThingHandler {
 
         PropertiesList propLayers = PropertiesList.create(replaceBindVariables(propertiesList));
 
-        if (propLayers.size() > 0) {
+        // if (propLayers.size() > 0) {
+        if (!propLayers.isEmpty()) {
             boolean foundMiddleground = false;
 
             for (Properties layerProperties : propLayers) {
