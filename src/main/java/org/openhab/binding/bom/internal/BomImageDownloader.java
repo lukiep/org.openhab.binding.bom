@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -113,9 +113,13 @@ public class BomImageDownloader {
                 if (imagePath.matches(URL_PROTOCOL_PATTERN)) {
                     try {
                         logger.debug("Downloading {}", imagePath);
-                        BufferedInputStream in = new BufferedInputStream(new URL(imagePath).openStream());
+                        // BufferedInputStream in = new BufferedInputStream(new URL(imagePath).openStream());
+                        URI uri = URI.create(imagePath);
+                        BufferedInputStream in = new BufferedInputStream(uri.toURL().openStream());
+
                         BufferedImage downloadedImage = ImageIO.read(in);
                         imageLayers.add(new ImageLayer(layerConfig, downloadedImage));
+
                     } catch (IOException ex) {
                         logger.warn("Unable to retrieve {}", imagePath, ex);
                     }

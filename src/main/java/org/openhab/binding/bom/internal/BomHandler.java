@@ -14,7 +14,7 @@ package org.openhab.binding.bom.internal;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
+import java.net.URI;
 import java.net.URLConnection;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -144,7 +144,10 @@ public class BomHandler extends BaseThingHandler {
         try {
             logger.debug("Retrieving observation data from {}", observationFtpPath);
 
-            URLConnection urlConnection = new URL(observationFtpPath).openConnection();
+            // URLConnection urlConnection = new URL(observationFtpPath).openConnection();
+            URI uri = URI.create(observationFtpPath);
+            URLConnection urlConnection = uri.toURL().openConnection();
+
             inputStream = urlConnection.getInputStream();
 
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
@@ -224,7 +227,8 @@ public class BomHandler extends BaseThingHandler {
             } else {
                 logger.error("Unable to find weather station ID {} in {}", config.weatherStationId, observationFtpPath);
             }
-        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
+        } catch (IllegalArgumentException | IOException | ParserConfigurationException | SAXException
+                | XPathExpressionException ex) {
             logger.error("Unable to process observation data", ex);
             updateStatus(ThingStatus.OFFLINE);
         } finally {
@@ -258,7 +262,10 @@ public class BomHandler extends BaseThingHandler {
         InputStream inputStream = null;
 
         try {
-            URLConnection urlConnection = new URL(forecastFtpPath).openConnection();
+            // URLConnection urlConnection = new URL(forecastFtpPath).openConnection();
+            URI uri = URI.create(forecastFtpPath);
+            URLConnection urlConnection = uri.toURL().openConnection();
+
             inputStream = urlConnection.getInputStream();
 
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
@@ -340,7 +347,8 @@ public class BomHandler extends BaseThingHandler {
             } else {
                 logger.warn("There is no precis forecast found for area ID {} in {}", config.areaId, forecastFtpPath);
             }
-        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
+        } catch (IllegalArgumentException | IOException | ParserConfigurationException | SAXException
+                | XPathExpressionException ex) {
             logger.error("Unable to process precis forecast data from {}", forecastFtpPath, ex);
             updateStatus(ThingStatus.OFFLINE);
         } finally {
@@ -394,7 +402,10 @@ public class BomHandler extends BaseThingHandler {
         InputStream inputStream = null;
 
         try {
-            URLConnection urlConnection = new URL(forecastFtpPath).openConnection();
+            // URLConnection urlConnection = new URL(forecastFtpPath).openConnection();
+            URI uri = URI.create(forecastFtpPath);
+            URLConnection urlConnection = uri.toURL().openConnection();
+
             inputStream = urlConnection.getInputStream();
 
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
@@ -461,7 +472,8 @@ public class BomHandler extends BaseThingHandler {
                 logger.warn("There is no city/down/district forecast found for area ID {} in {}", config.areaId,
                         forecastFtpPath);
             }
-        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
+        } catch (IllegalArgumentException | IOException | ParserConfigurationException | SAXException
+                | XPathExpressionException ex) {
             logger.error("Unable to process precis forecast data from {}", forecastFtpPath, ex);
             updateStatus(ThingStatus.OFFLINE);
         } finally {

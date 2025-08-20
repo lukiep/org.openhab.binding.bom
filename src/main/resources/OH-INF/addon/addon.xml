@@ -5,7 +5,7 @@
 
 	<type>binding</type>
 	<name>BOM Binding</name>
-	<description>Binding for Australian Bureau of Meteorology Weather Forecast.9:49</description>
+	<description>Binding for Australian Bureau of Meteorology Weather Forecast.</description>
 	<connection>cloud</connection>
 
 </addon:addon>
