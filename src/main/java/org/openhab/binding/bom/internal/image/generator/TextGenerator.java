@@ -20,8 +20,8 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openhab.binding.bom.internal.properties.Properties;
+import org.openhab.binding.bom.internal.util.BomStringHelper;
 
 /**
  * The {@link TextGenerator} class draws text onto the image
@@ -81,13 +81,15 @@ public class TextGenerator extends ImageGenerator {
 
     private int getInt(String value, int defaultValue) {
         try {
-            return StringUtils.isBlank(value) ? defaultValue : Integer.parseInt(value);
+            // return StringUtils.isBlank(value) ? defaultValue : Integer.parseInt(value);
+            return BomStringHelper.isBlank(value) ? defaultValue : Integer.parseInt(value);
         } catch (NumberFormatException ex) {
             return 0;
         }
     }
 
     private String getString(String value, String defaultValue) {
-        return StringUtils.isBlank(value) ? defaultValue : value;
+        // return StringUtils.isBlank(value) ? defaultValue : value;
+        return BomStringHelper.isBlank(value) ? defaultValue : value;
     }
 }

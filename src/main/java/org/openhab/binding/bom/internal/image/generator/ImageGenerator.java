@@ -14,8 +14,8 @@ package org.openhab.binding.bom.internal.image.generator;
 
 import java.awt.image.BufferedImage;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openhab.binding.bom.internal.properties.Properties;
+import org.openhab.binding.bom.internal.util.BomStringHelper;
 
 /**
  * The {@link ImageGenerator} class generates animated GIF.
@@ -28,7 +28,8 @@ public abstract class ImageGenerator {
     public abstract BufferedImage generate(int width, int height, Properties properties);
 
     protected String[] parseParams(String properties) {
-        if (StringUtils.isBlank(properties)) {
+        // if (StringUtils.isBlank(properties)) {
+        if (BomStringHelper.isBlank(properties)) {
             return null;
         }
 

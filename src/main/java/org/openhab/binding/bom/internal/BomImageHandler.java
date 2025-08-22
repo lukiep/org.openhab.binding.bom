@@ -29,7 +29,6 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.imageio.stream.ImageOutputStream;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
@@ -49,6 +48,7 @@ import org.openhab.binding.bom.internal.net.FtpRegexImageFileFilter;
 import org.openhab.binding.bom.internal.properties.Properties;
 import org.openhab.binding.bom.internal.properties.PropertiesList;
 import org.openhab.binding.bom.internal.properties.Property;
+import org.openhab.binding.bom.internal.util.BomStringHelper;
 import org.openhab.core.library.types.DateTimeType;
 import org.openhab.core.library.types.StringType;
 import org.openhab.core.thing.ChannelUID;
@@ -147,8 +147,10 @@ public class BomImageHandler extends BaseThingHandler {
     }
 
     private synchronized void refreshImage() {
-        if (StringUtils.isBlank(config.ftpServer) || StringUtils.isBlank(config.imagesPath)
-                || StringUtils.isBlank(config.productId)) {
+        // if (StringUtils.isBlank(config.ftpServer) || StringUtils.isBlank(config.imagesPath)
+        // || StringUtils.isBlank(config.productId)) {
+        if (BomStringHelper.isBlank(config.ftpServer) || BomStringHelper.isBlank(config.imagesPath)
+                || BomStringHelper.isBlank(config.productId)) {
             logger.error("FTP server, images path and product ID are required.");
             updateStatus(ThingStatus.UNKNOWN);
             return;
@@ -171,7 +173,8 @@ public class BomImageHandler extends BaseThingHandler {
         try {
             FTPFileFilter filter;
 
-            if (StringUtils.isNotBlank(config.filenameRegex)) {
+            // if (StringUtils.isNotBlank(config.filenameRegex)) {
+            if (BomStringHelper.isNotBlank(config.filenameRegex)) {
                 filter = new FtpRegexImageFileFilter(config.filenameRegex, dateTimeRange);
             } else {
                 filter = new FtpImageFileFilter(config.productId, dateTimeRange);
@@ -394,7 +397,8 @@ public class BomImageHandler extends BaseThingHandler {
     }
 
     private ZonedDateTime getAdjustedTimestamp(ZonedDateTime timestamp, String timeAdjustment) {
-        if (StringUtils.isBlank(timeAdjustment)) {
+        // if (StringUtils.isBlank(timeAdjustment)) {
+        if (BomStringHelper.isBlank(timeAdjustment)) {
             return timestamp;
         }
 

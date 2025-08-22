@@ -34,7 +34,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.commons.lang3.StringUtils;
+import org.openhab.binding.bom.internal.util.BomStringHelper;
 import org.openhab.core.library.types.DateTimeType;
 import org.openhab.core.library.types.DecimalType;
 import org.openhab.core.library.types.StringType;
@@ -127,8 +127,10 @@ public class BomHandler extends BaseThingHandler {
     }
 
     private synchronized void refreshObservation() {
-        if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.observationProductId)
-                || StringUtils.isBlank(config.weatherStationId)) {
+        // if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.observationProductId)
+        // || StringUtils.isBlank(config.weatherStationId)) {
+        if (BomStringHelper.isBlank(config.ftpPath) || BomStringHelper.isBlank(config.observationProductId)
+                || BomStringHelper.isBlank(config.weatherStationId)) {
             logger.error("FTP path, observation product ID and weather station ID are required");
             updateStatus(ThingStatus.OFFLINE);
             return;
@@ -236,7 +238,7 @@ public class BomHandler extends BaseThingHandler {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    logger.warn("Unable to close input streram", e);
+                    logger.warn("Unable to close input stream", e);
                 }
             }
         }
@@ -248,8 +250,10 @@ public class BomHandler extends BaseThingHandler {
     }
 
     private void refreshPrecisForecast() {
-        if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.precisForecastProductId)
-                || StringUtils.isBlank(config.areaId)) {
+        // if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.precisForecastProductId)
+        // || StringUtils.isBlank(config.areaId)) {
+        if (BomStringHelper.isBlank(config.ftpPath) || BomStringHelper.isBlank(config.precisForecastProductId)
+                || BomStringHelper.isBlank(config.areaId)) {
             logger.error("FTP path, precis forecast product ID and area ID are required");
             updateStatus(ThingStatus.OFFLINE);
             return;
@@ -356,7 +360,7 @@ public class BomHandler extends BaseThingHandler {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    logger.warn("Unable to close input streram", e);
+                    logger.warn("Unable to close input stream", e);
                 }
             }
         }
@@ -387,8 +391,10 @@ public class BomHandler extends BaseThingHandler {
     }
 
     private void refreshCityTownDistrictForecast() {
-        if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.cityTownForecastProductId)
-                || StringUtils.isBlank(config.areaId)) {
+        // if (StringUtils.isBlank(config.ftpPath) || StringUtils.isBlank(config.cityTownForecastProductId)
+        // || StringUtils.isBlank(config.areaId)) {
+        if (BomStringHelper.isBlank(config.ftpPath) || BomStringHelper.isBlank(config.cityTownForecastProductId)
+                || BomStringHelper.isBlank(config.areaId)) {
             logger.error("FTP path, city/town/district forecast product ID and area ID are required");
             updateStatus(ThingStatus.OFFLINE);
             return;
@@ -420,7 +426,8 @@ public class BomHandler extends BaseThingHandler {
             String areaForecast = getString(xmlDocument, xPath,
                     areaXPath + "/forecast-period[1]/text[@type='forecast']");
 
-            if (StringUtils.isNotBlank(areaForecast)) {
+            // if (StringUtils.isNotBlank(areaForecast)) {
+            if (BomStringHelper.isNotBlank(areaForecast)) {
                 targetAreaXPath = areaXPath + "/forecast-period";
             } else {
                 // Get nodes from parent
@@ -481,7 +488,7 @@ public class BomHandler extends BaseThingHandler {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    logger.warn("Unable to close input streram", e);
+                    logger.warn("Unable to close input stream", e);
                 }
             }
         }
