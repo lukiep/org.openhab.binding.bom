@@ -30,8 +30,9 @@ import javax.imageio.stream.ImageOutputStream;
  *
  * This class is source from the web, uncertain of who the author is as it is copied everywhere.
  *
- * @author Various
+ * @author Various - Initial contribution
  */
+
 public class GifSequenceWriter {
     protected ImageWriter writer;
     protected ImageWriteParam params;

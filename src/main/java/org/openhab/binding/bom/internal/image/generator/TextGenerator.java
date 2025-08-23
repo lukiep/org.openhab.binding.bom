@@ -28,6 +28,7 @@ import org.openhab.binding.bom.internal.util.BomStringHelper;
  *
  * @author Thomas Tan - Initial contribution
  */
+
 public class TextGenerator extends ImageGenerator {
     @Override
     public BufferedImage generate(int width, int height, Properties properties) {

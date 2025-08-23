@@ -24,8 +24,9 @@ import org.openhab.binding.bom.internal.image.generator.TextGenerator;
  *
  * This class is source from the web, uncertain of who the author is as it is copied everywhere.
  *
- * @author Various
+ * @author Various - Initial contribution
  */
+
 public class ImageGenerators {
     private static final Map<String, ImageGenerator> generators = new HashMap<>();
 

@@ -22,8 +22,9 @@ import org.openhab.binding.bom.internal.util.BomStringHelper;
  *
  * This class is source from the web, uncertain of who the author is as it is copied everywhere.
  *
- * @author Various
+ * @author Various - Initial contribution
  */
+
 public abstract class ImageGenerator {
     public abstract BufferedImage generate(int width, int height, Properties properties);
 

@@ -1,6 +1,6 @@
 # <bindingName> Australian Bureau of Meteorology Weather Forecast and Image Binding
 
-This binding retrieves Australian weather forecast and meteorological images from Bureau of Meteorology for use in openHaB/Eclipse Smarthome.
+This binding retrieves Australian weather forecast and meteorological images from Bureau of Meteorology for use in openHAB.
 
 ## Contents
 
@@ -90,6 +90,7 @@ For future forecasts the following fields are available:
 ### BOM Images Features
 
 BOM images, like rain radar, rainfall and satellite images, can retrieved and processed.  You have the option of:
+
 - Retrieve the image sequence filenames for use in custom template with custom AngularJS animation code.
 - Generate animated GIF from a sequence images.
 - Generate individual PNG images from a sequence of images.
@@ -98,38 +99,45 @@ See below for more details.
 
 ## Prerequisite
 
-#### For openHAB 2
-- openHAB 2.4 to 2.5.x
-- Java 1.8 and above.
-- Fonts installed if local timestamp is enabled for BOM Image.
+#### For openHAB 5
+
+- openHAB 5.0.0 and above
+- Java 21 and above
+
+#### For openHAB 4
+
+- openHAB 4.0.0 and above.
+- Java 17 and above.
 
 #### For openHAB 3
+
 - openHAB 3.0.0 and above
 - Java 11 and above.
 - Fonts installed if local timestamp is enabled for BOM Image.
 
 ## Installation
 
-### Via Eclipse IoT Market - for openHAB 2 only
-For openHAB install **Eclipse IoT Market** add-on under *MISC* tab in openHAB Paper UI.  Then install **Australian BOM Weather Forecast Binding** from the *Bindings* page.
+### Manual installation
 
-For Eclipse SmartHome install from https://marketplace.eclipse.org/content/australian-bom-weather-forecast-binding.
+Download the required jar below for your openHAB version and copy to the openHAB `addons` directory.
 
-### Manual installation - for openHAB 2 and openHAB 3
-Download the latest jar below for your openHAB version and copy to the openHAB `addons` directory.
+#### openHAB 5.0.x
+
+Version 5.0.x [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/5.0.x/dist/org.openhab.binding.bom-5.0.1-SNAPSHOT.jar)
+
+#### openHAB 4.1.x
+
+Version 4.1.x [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/4.1.x/dist/org.openhab.binding.bom-4.1.0-SNAPSHOT.jar)
 
 #### openHAB 3.2.x
-Version 3.2.x [Download](https://github.com/tomitan100/org.openhab.binding.bom/raw/3.2.x/dist/org.openhab.binding.bom-3.2.1-SNAPSHOT.jar)
+
+Version 3.2.x [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/3.2.x/dist/org.openhab.binding.bom-3.2.1-SNAPSHOT.jar)
 
 #### openHAB 3.0.x
-Version 3.0.0 [Download](https://github.com/tomitan100/org.openhab.binding.bom/raw/3.0.x/dist/org.openhab.binding.bom-3.0.0-SNAPSHOT.jar)
 
-Version 3.0.3 [Download](https://github.com/tomitan100/org.openhab.binding.bom/raw/3.0.x/dist/org.openhab.binding.bom-3.0.3-SNAPSHOT.jar)
+Version 3.0.3 [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/3.2.x/dist/org.openhab.binding.bom-3.0.3-SNAPSHOT.jar)
 
-#### openHAB 2
-Version 2.5.9 [Download](https://github.com/tomitan100/org.openhab.binding.bom/raw/2.5.x/dist/org.openhab.binding.bom-2.5.9-SNAPSHOT.jar)
-
-Version 2.5.0 [Download](https://github.com/tomitan100/org.openhab.binding.bom/raw/2.5.x/dist/org.openhab.binding.bom-2.5.0-SNAPSHOT.jar)
+Version 3.0.0 [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/3.2.x/dist/org.openhab.binding.bom-3.0.0-SNAPSHOT.jar)
 
 ## Weather observation and forecast configuration
 
@@ -296,7 +304,7 @@ For more information about data-feeds, please go to http://reg.bom.gov.au/catalo
 
 Screenshot below shows an example configuration in Paper UI.
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/configuration.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/configuration.png?raw=true" />
 
 
 ## Weather Forecast Icons
@@ -380,18 +388,21 @@ The following table shows all the possible icon names returned by the channel. Y
 
 ## BOM Weather Items mapping and sitemap files
 
-Creating items and linking them for eight days of forecasts can be tedious.  Provided below is the items mapping file that you can drop into the "items" folder, typically in `/etc/openhab2/items` under Linux or `C:\openHAB2\conf\items` under Windows.  The prerequisite is to name the BOM Thing ID "default".  If you would like name your BOM Thing ID as something else, edit the file and rename accordingly.
+Creating items and linking them for eight days of forecasts can be tedious.  Provided below is the items mapping file that you can drop into the "items" folder, typically in `/etc/openhab/items` under Linux or `C:\openHAB\conf\items` under Windows.  The prerequisite is to name the BOM Thing ID "default".  If you would like name your BOM Thing ID as something else, edit the file and rename accordingly.
 
-https://github.com/tomitan100/org.openhab.binding.bom/raw/master/doc/bom.items
+https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/bom.items
+ [Open](https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/bom.items)
 
-Also provided below is the site map where you can modify and drop into `/etc/openhab2/sitemaps`.
+Also provided below is the site map where you can modify and drop into `/etc/openhab/sitemaps`.
 
-https://github.com/tomitan100/org.openhab.binding.bom/raw/master/doc/bom.sitemap
+https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/bom.sitemap
+ [Open](https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/bom.sitemap)
 
 
 ## BOM Weather Images Generation
 
 ### Background Information
+
 BOM images, like rain radar loop, are made up of a series of transparent PNG files, which get updated frequently as data is made available.  These images contain only the transparent radar/satellite scans and do not include static overlays like the the background, topography, locations, borders, etc.  The final image is built by overlaying all the images in the correct order.
 
 BOM Image binding can create final image(s) of each radar or satellite image sequence or series as PNG images or a single animated GIF or both.  This makes it easier for you to display radar loops in the browser/viewer without having to code Javascript to assemble the image overlays.
@@ -404,11 +415,12 @@ You have the option to use images from different paths to generate other kinds o
 
 Configuring weather images does look daunting at first but it is not.  If you read through the instruction below you should have no problems.
 
-For rainfal radar images, the first step is to determine the product ID of the images you are after.  You can do this easily by searching "IDR" in BOM's catalogue page http://reg.bom.gov.au/catalogue/anon-ftp.shtml.  Another way is to note the product ID in the "Rainfall Radars" URL itself.  e.g http://www.bom.gov.au/products/IDR701.loop.shtml.
+For rainfall radar images, the first step is to determine the product ID of the images you are after.  You can do this easily by searching "IDR" in BOM's catalogue page http://reg.bom.gov.au/catalogue/anon-ftp.shtml.  Another way is to note the product ID in the "Rainfall Radars" URL itself.  e.g http://www.bom.gov.au/products/IDR701.loop.shtml.
 
 Note that each radar range is under different product ID.
 
 Examples for Perth radar loop:
+
 - IDR701 - 512 km
 - IDR702 - 256 km
 - IDR703 - 128 km
@@ -416,67 +428,85 @@ Examples for Perth radar loop:
 
 In the configuration screen typically you would only care about changing the Product ID to the rainfall radar you would like to show, and turning on _Generate animated GIF_.  For other products please see example configurations in this document.
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/configuration-image-sources.png?raw=true" />
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/configuration-image-generation.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/configuration-image-sources.png?raw=true"/>
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/configuration-image-generation.png?raw=true"/>
 
 On this screen you also have the option to modify the layer ordering, add additional layer, generate PNG images, generate animated GIF, change the delay between GIF images in the animated gif, enable GIF looping, enable local timestamp, configure local timestamp properties, apply post processing to the image, change image output path and output filename.
 
 #### Image sources configuration fields
 
 __FTP server:__
+
 This is the BOM's FTP server.
 
 __Images directory path:__
+
 The location of the images sequences relative to the root directory of the FTP server.
 
 __Image product ID:__
+
 The product ID as described above.
 
 __Transparencies directory path:__
+
 The location of the static background and foreground images relative to the root directory of the FTP server.
 
 __Regular expression for image file filter:__
+
 Under some scenarios it is necessary to provide more specific filter by the use of regular expression.  This is an optional field.
 
 __Date range to search:__
+
 The date range to search.  Valid values are: `last_#d` (last # days), `last_#h` (last # hours), `last_#m` (last # minutes), `last_#s` (last # seconds), `today` and `yesterday`.  e.g `last_15m` to include files only from the last 15 minutes.  Specific start/end date is not yet supported.
 
 __Image layers configuration:__
+
 The list of layers to merge.  See below for details.
 
 __Monitoring interval in minutes:__
+
 The interval to check for new files.
 
 #### Image generation configuration fields
 
 __Generate PNG images:__
+
 Generate individual images from series.
 
 __Generate animaged GIF:__
+
 Generated animated GIF from series.
 
 __GIF image delay time in ms:__
+
 The number of milliseconds to pause before showing the next image sequence/frame.
 
 __Enable GIF loop:__
+
 If enabled GIF will restart when the last frame is reached.
 
 __Embed local timestamp:__
+
 Embed local timestamp in each image.
 
 __Local timestamp properties:__
+
 The timestamp's font face, font size, font weight, font decoration, font style, font colour and position configuration.
 
 __TIFF image index:__
+
 High-definition images, like from Himawari-8 satellite, are stored in a single TIFF image file.  There are five images in the file and each image is of varying resolution; zero being the highest resolution (6111x4167), four being lowest resolution (510x350).  The default image index is 3.  The use of image index 0 or 1 is not recommended unless your system can handle it.
 
 __Image post-processing:__
+
 Post processing applied to the final image.  See below for details.
 
 __Image output path:__
+
 The path to output the generated images.
 
 __Image output filename:__
+
 The name to give to the filename.  This field can also accept bind variable `${pid}`, which is the ID entered in the Product ID field.
 
 ### Image Layers Configuration
@@ -490,6 +520,7 @@ For example (taken from default configuration):
 `image=IDR.legend.0.png; image=${pid}.background.png; image=${pid}.topography.png; image=${series}; image=${pid}.locations.png; image=${pid}.range.png`
 
 Explanation:
+
 - There are six layers of images that make up the final image: legend, background, topography overlay, ${series} image, locations transparency overlay and range transparency overlay.  You can re-order the the layers to your liking.
 - `${pid}` is the placeholder for product ID and gets replaced by the product ID you entered in the product ID field.  If your product ID is IDR701 then it is equivalent to entering `image=IDR701.background.png`.
 - Layer 1 non-transparent part of the image will be obscured by layer 2, layer 2 will be obscured by layer 3, and so on.
@@ -524,18 +555,19 @@ Below is a list of supported external image sources:
   <tr>
     <td>file</td>
     <td>Local file</td>
-    <td>image=file:///etc/openhab2/html/location_24.png</td>
+    <td>image=file:///etc/openhab/html/location_24.png</td>
   </tr>
 <table>
 
 ## Image Manipulation and Processing
 
 There are five image manipulation operations available to each layer and the final image:
+
 - Opacity - changes the opacity (transparency level) of the image.
 - Resize - resizes the image.
 - Crop - crops the image.
 - Position - repositions image in the layer.
-- Resize canvas - reizes the canvas.
+- Resize canvas - resizes the canvas.
 
 <table>
 <tr align="left">
@@ -580,7 +612,7 @@ __Example usage in a layer:__
 
 `image=${pid}.range.png, opacity=0.5;`
 
-`image=file:///C:/openhab2/html/location_24.png, opacity=0.5, position=218 148;`
+`image=file:///C:/openhab/conf/html/location_24.png, opacity=0.5, position=218 148;`
 
 __Example usage in Image post-processing field:__
 
@@ -643,26 +675,27 @@ Available configuration properties:
 
 ### Rain radar images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/radar_1.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/radar_1.png?raw=true" />
 
 _Image directory path:_ `/anon/gen/radar/`
 
 _Image product ID:_ `IDR701`
 
-_Image layers configuration:_ `image=IDR.legend.0.png; image=${pid}.background.png; image=${pid}.topography.png; image=${series}; image=${pid}.locations.png; image=${pid}.range.png, opacity=0.6; image=file:///etc/openhab2/html/location_24.png, opacity=0.8, position=248 212`
+_Image layers configuration:_ `image=IDR.legend.0.png; image=${pid}.background.png; image=${pid}.topography.png; image=${series}; image=${pid}.locations.png; image=${pid}.range.png, opacity=0.6; image=file:///etc/openhab/html/location_24.png, opacity=0.8, position=248 212`
 
 _Embed local timestamp:_ `On`
 
 _Local timestamp properties:_ `format=dd/MM/yyyy HH:mm:ss z, adjust-timestamp=-5m font-face=Arial, font-size=16, font-color=#000000, font-weight=bold, position=250 485`
 
 __Note:__
+
 - Timestamp is adjusted to minus 5 minutes to match the UTC time overlay.
 - Opacity is added to range image overlay.
 - The use of location marker with its opacity set to 0.8 and positioned to the desired location.
 
 ### Doppler wind images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/doppler-wind.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/doppler-wind.png?raw=true" />
 
 _Image directory path:_ `/anon/gen/radar/`
 
@@ -674,7 +707,7 @@ _Image layers configuration:_ `image=IDR.legend.2.png; image=IDR703.background.p
 
 ### Rainfall images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/rainfall.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/rainfall.png?raw=true" />
 
 _Image directory path:_ `/anon/gen/radar/`
 
@@ -689,9 +722,9 @@ _Local timestamp properties:_ `format=dd/MM/yyyy HH:mm:ss z, font-face=Arial, fo
 
 ### Satellite images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/satellite.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/satellite.png?raw=true" />
 
-Click [here](https://github.com/tomitan100/org.openhab.binding.bom/raw/master/doc/satellite.gif) for animated GIF version.
+Click [here](https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/satellite.gif) for animated GIF version.
 
 _Image directory path:_ `/anon/gen/gms/`
 
@@ -824,9 +857,9 @@ __Note:__
 
 ### High-definition Himawari-8 satellite images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/himawari.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/himawari.png?raw=true" />
 
-Click [here](https://github.com/tomitan100/org.openhab.binding.bom/raw/master/doc/himwari.gif) for animated GIF version.
+Click [here](https://github.com/lukiep/org.openhab.binding.bom/raw/master/doc/himwari.gif) for animated GIF version.
 
 _Image directory path:_ `/anon/gen/gms/`
 
@@ -848,7 +881,7 @@ __Note:__
 
 ### Mean sea-level pressure images configuration example
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/mslp.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/mslp.png?raw=true" />
 
 _Image directory path:_ `/anon/gen/fwo/`
 
@@ -899,82 +932,108 @@ The list of radar image sequences are available as a channel (Source Images).  U
 
 The screenshots below are examples of the binding in operation.  The screens use custom theme called "Matrix Theme" by Patrick (`@pmpkk`).  For more information about the theme please go to https://community.openhab.org/t/matrix-theme-for-habpanel/31100.
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/home.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/home.png?raw=true" />
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/forecast.png?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/forecast.png?raw=true" />
 
-<img src="https://github.com/tomitan100/org.openhab.binding.bom/blob/master/doc/radar-loop.gif?raw=true" />
+<img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/radar-loop.gif?raw=true" />
 
 ## Change log
+
+__15/09/2023__
+
+- openHAB version 4.0.x compatibility update
+
 __16/02/2022__
+
 - openHAB version 3.2.x compatibility update
 
 __13/12/2021__
+
 - openHAB version 3.0.3 update
 - Add option to save XML data file from BOM
 - Replace dashes with underscores in icon names (version 3.0.3 only)
 
 __18/12/2020__
+
 - openHAB version 3.0.0 update
 
 __20/10/2020__
+
 - Changed FTP client to not verify remote site.
 
 __25/09/2020__
+
 - openHAB version 2.5.9 compatibility update.
 
 __03/01/2020__
+
 - Fixed retry of image generation if images are missing on the FTP site.
 
 __23/04/2019__
+
 - Added support for high-definition Himawari-8 satellite images (TIFF files).
 
 __20/04/2019__
+
 - Read timestamp from image filename instead of file.
 - Added optional `adjust-timestamp` property to local timestamp configuration.
 - Removed hard-coded timestamp adjustment as this is not applicable to other image products.
 
 __18/04/2019__
+
 - Fixed chaining of image manipulation operation.
 
 __17/04/2019__
+
 - Added regular expression file matching.
 - Added date time range filter.
 
 __15/04/2019__
+
 - Added timestamp option.
 - Fixed sourcing of images from external sources.
 
 __14/04/2019__
+
 - Added retain min/max temperatures for today.
 - Added BOM radar/rainfall image generation support.
 
 __08/03/2019__
+
 - Fixed icon mapping for light rain.
 
 __03/03/2019__
+
 - Fixed apparent vs air temperature mix up.
 - Fixed today's min/max temperature.
 
 __26/02/2019__
+
 - Added 24 hour rainfall channel.
 - Added minimum and maximum precipitation.
 
 __18/02/2019__
+
 - Added weather station channel and additional logging.
 
 __17/02/2019__
+
 - Updated channel label names.
 
 __16/02/2019__
+
 - Added apparent temperature from observation.
 
 __14/02/2019__
+
 - Added support for city/town and district forecast data.
 - Handled NaN values from data.
 
 __13/02/2019__
+
 - Updated forecast date and time label.
 
 __12/02/2019__
+
 - Initial release.
