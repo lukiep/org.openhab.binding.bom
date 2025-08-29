@@ -1,1 +1,7 @@
-/target/
+# Maven build artefacts
+target/
+
+# Eclipse project files
+.settings/
+.classpath
+.project
