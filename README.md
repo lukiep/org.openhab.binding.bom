@@ -123,7 +123,7 @@ Download the required jar below for your openHAB version and copy to the openHAB
 
 #### openHAB 5.0.x
 
-Version 5.0.x [Download](https://github.com/lukiep/org.openhab.binding.bom/raw/5.0.x/dist/org.openhab.binding.bom-5.0.1-SNAPSHOT.jar)
+Version 5.0.2 [Download](https://github.com/lukiep/org.openhab.binding.bom/releases/download/v5.0.2-snapshot/org.openhab.binding.bom-5.0.2-SNAPSHOT.jar)
 
 #### openHAB 4.1.x
 
@@ -939,6 +939,18 @@ The screenshots below are examples of the binding in operation.  The screens use
 <img src="https://github.com/lukiep/org.openhab.binding.bom/blob/master/doc/radar-loop.gif?raw=true" />
 
 ## Change log
+
+__29/08/2025__
+
+- openHAB version 5.0.x compatibility update
+- Updated workspace to `5.0.2-SNAPSHOT` and synced with upstream  
+- Migrated from `StringUtils` to custom `BomStringHelper`; removed `commons-lang3` dependency  
+- Updated FTP parsing from `URL` to `URI`  
+- Replaced `size() > 0` with `isEmpty()` for clarity  
+- Expanded `.gitignore`  
+- Removed tracked `dist/` artifacts; artifacts now published via GitHub Releases
+- Removed IntelliJ-specific project files and cleaned up legacy IDE metadata
+- Updated author fields in multiple files to meet formatting requirements; removed legacy references from readme.md to openHAB2 and Eclipse SmartHome  
 
 __15/09/2023__
 
